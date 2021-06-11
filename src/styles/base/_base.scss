@@ -10,11 +10,15 @@ body {
   font-size: $m-size;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
-button:disabled {//button eka disabled wela tynakota cursor eka default
+button:disabled {
+  //button eka disabled wela tynakota cursor eka default
   cursor: default;
 }
 
+.is-active {
+  font-weight: bold;
+}

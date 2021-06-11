@@ -30,6 +30,7 @@ module.exports = {
     },
     devtool : 'cheap-module-eval-source-map',
     devServer: {//dev server eke tyna onama ekak me object eketa danna plwan
-        contentBase: path.join(__dirname, 'public')
+        contentBase: path.join(__dirname, 'public'),
+        historyApiFallback: true
     }
 }

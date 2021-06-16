@@ -1,22 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import { addExpense, removeExpense } from '../actions/expenses';
+import { editExpense, removeExpense } from '../actions/expenses';
 
 const EditExpensePage = (props) => {
     console.log(props);
     return (
         <div>
             <ExpenseForm
-                expense={props.expenses}
+                expense={props.expense}
                 onSubmit={(expense) => {
                     console.log('updated', expense)
-                    props.dispatch(addExpense(expense));
+                    props.dispatch(editExpense(props.expense.id, expense));
                     props.history.push('/');
                 }}
             />
             <button onClick={()=>{
-                props.dispatch(removeExpense({id: props.expenses.id}));
+                props.dispatch(removeExpense({id: props.expense.id}));
                 props.history.push('/');
             }}>Remove</button>
         </div>
@@ -25,7 +25,7 @@ const EditExpensePage = (props) => {
 
 const mapStateToProps = (state, props) => { //mekata ena props nui state eken ena ewai dekama thama uda props walin access karanne
     return {
-        expenses: state.expenses.find((expense) => {
+        expense: state.expenses.find((expense) => {
             return expense.id === props.match.params.id;//find eka individual options walin true return karana ewaa eliyata gannawa
         })
     };

@@ -1,9 +1,13 @@
+import moment from "moment";
+
 // Get visible expenses
 
 export default (expenses, { text, sortBy, startDate, endDate }) => {
-    return expenses.filter((expense) => {
-      const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
-      const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+    return expenses.filter((expense) => {//filter eken eka expense object eka gane athulata aragena conditions check karanawa
+      //filter eken true return wenawa nam eka dagannawa return object array ekata
+      const createdAtMoment = moment(expense.createdAt)
+      const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
+      const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
       const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
   
       return startDateMatch && endDateMatch && textMatch;

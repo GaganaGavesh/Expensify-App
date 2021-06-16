@@ -1,10 +1,12 @@
+import moment from "moment";
+
 // Filters Reducer
 
 const filtersReducerDefaultState = {
     text: '',
     sortBy: 'date',
-    startDate: undefined,
-    endDate: undefined
+    startDate: moment().startOf('month'),//current month ekee start eka
+    endDate: moment().endOf('month')//current month ekee end date eka
   };
   
   export default (state = filtersReducerDefaultState, action) => {

@@ -9,7 +9,9 @@ export default () => {//store eka thama return wenne
         combineReducers({
             expenses: expensesReducer,
             filters: filtersReducer
-        })
+        }),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()//Redux dev tools walata
+        //store eka pennanna pluwn wenna nam meka danna ona
     );
 
     return store;

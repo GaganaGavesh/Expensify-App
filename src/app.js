@@ -20,6 +20,7 @@ const store = configureStore();//meken enable karanawa store ekata karanna pluwn
 store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }));
 store.dispatch(addExpense({ description: 'Gas bill', createdAt: 1000 }));
 store.dispatch(addExpense({ description: 'Rent', amount: 109500 }));
+store.dispatch(addExpense({ description: 'Bike', amount: 4500000 }));
 
 // store.dispatch(setTextFilter('bill'));
 // store.dispatch(setTextFilter('water'));
@@ -29,10 +30,12 @@ store.dispatch(addExpense({ description: 'Rent', amount: 109500 }));
 // },3000);
 
 
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-console.log(visibleExpenses);
+// const state = store.getState();
+// const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+//console.log(visibleExpenses);
 
+console.log('Test');//source maps wada nam me dana ewa tyna than ekka pennanna ona console eke
+//ex me Test kiyana eka app.js eke tynawa kiyala pennanna ona dakunu paththen
 
 //console.log(store.getState());
 
